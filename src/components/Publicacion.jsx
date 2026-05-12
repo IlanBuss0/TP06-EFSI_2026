@@ -1,5 +1,5 @@
-import User from './chicos/User';
-import Icono from './chicos/Icono';
+import User from './User';
+import Icono from './Icono';
 
 function Publicacion({ imagen, usuario }) {
   return (

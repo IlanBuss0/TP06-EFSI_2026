@@ -1,5 +1,5 @@
-import Titulo from './chicos/Titulo';
-import User from './chicos/User';
+import Titulo from './Titulo';
+import User from './User';
 
 function Stories() {
   const stories = [

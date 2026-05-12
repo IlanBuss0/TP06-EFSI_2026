@@ -1,7 +1,7 @@
-import Burbuja from './chicos/Burbuja';
-import Subtitulo from './chicos/Subtitulo';
-import Estadistica from './chicos/Estadistica';
-import BotonMenu from './chicos/BotonMenu';
+import Burbuja from './Burbuja';
+import Subtitulo from './Subtitulo';
+import Estadistica from './Estadictica';
+import BotonMenu from './BotonMenu';
 
 function MenuLateral() {
   const fotoPerfil = 'https://picsum.photos/seed/perfil/100/100';

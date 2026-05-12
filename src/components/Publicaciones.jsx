@@ -1,4 +1,4 @@
-import Titulo from './chicos/Titulo';
+import Titulo from './Titulo';
 import Publicacion from './Publicacion';
 
 function Publicaciones() {

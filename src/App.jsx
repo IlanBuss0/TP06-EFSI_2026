@@ -1,7 +1,7 @@
-import MenuLateral from './components/grandes/MenuLateral';
-import Header from './components/grandes/Header';
-import Stories from './components/grandes/Stories';
-import Publicaciones from './components/grandes/Publicaciones';
+import MenuLateral from './components/MenuLateral';
+import Header from './components/Header';
+import Stories from './components/Stories';
+import Publicaciones from './components/Publicaciones';
 
 function App() {
   return (

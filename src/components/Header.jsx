@@ -1,4 +1,4 @@
-import Icono from './chicos/Icono';
+import Icono from './Icono';
 
 function Header() {
   return (
