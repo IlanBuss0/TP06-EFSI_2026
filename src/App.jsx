@@ -21,13 +21,6 @@ function App() {
 
     traerDatos()
 }, []) // carga todas las imagenes de la app al iniciar la app
-  useEffect(() =>{
-    const traerDatos = async() =>{
-      const historias = await obtenerMasHistorias()
-      setHistorias(historias)
-    }
-    traerDatos()
-  }, click) // si tocan para pasar historias se actualizan todas las fotos del header
   useEffect((fotoElegida) =>{
     const traerDatos = async(fotoElegida) =>{
       const publicacion = fotoElegida
