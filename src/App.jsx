@@ -5,7 +5,7 @@ import Stories from './components/Stories';
 import Publicaciones from './components/Publicaciones';
 import { obtenerImagenes, obtenerMasHistorias } from './services/API'
 import DetallePublicacion from './components/DetallePublicacion';
-import './App.css'
+import './App.css';
 
 function App() {
   const [publicaciones, setPublicaciones] = useState([]);
@@ -23,10 +23,11 @@ function App() {
 
     traerDatos();
   }, []);
+
   return (
-     <div className="app-layout">
+    <div className="app-layout">
       <MenuLateral />
-      <MenuLateral />
+
       <main className="contenido-principal">
         <Header />
         <Stories historias={historias} />
