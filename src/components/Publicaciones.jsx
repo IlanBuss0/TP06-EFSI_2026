@@ -1,20 +1,21 @@
 import Titulo from './Titulo';
 import Publicacion from './Publicacion';
 
-function Publicaciones() {
-  const listaPublicaciones = [
-    { id: 1, imagen: 'https://picsum.photos/seed/post1/400/300', usuario: '@user_name' },
-    { id: 2, imagen: 'https://picsum.photos/seed/post2/400/300', usuario: '@user_name' },
-    { id: 3, imagen: 'https://picsum.photos/seed/post3/400/300', usuario: '@user_name' }
-  ];
-
+function Publicaciones({ publicaciones, onSeleccionarPublicacion }) {
   return (
-    <section>
+    <section className="publicaciones-section">
       <Titulo texto="TRENDING" />
 
-      <div>
-        {listaPublicaciones.map((item) => (
-          <Publicacion key={item.id} imagen={item.imagen} usuario={item.usuario} />
+      <div className="publicaciones-grid">
+        {publicaciones.map((item, index) => (
+          <Publicacion
+            key={item.id}
+            id={item.id}
+            imagen={item.url}
+            usuario={`@catlover_${index + 1}`}
+            likes={Math.floor(1200 + index * 167)}
+            onSeleccionar={onSeleccionarPublicacion}
+          />
         ))}
       </div>
     </section>

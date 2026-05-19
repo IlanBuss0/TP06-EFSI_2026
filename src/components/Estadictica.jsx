@@ -2,10 +2,10 @@ import Subtitulo from './Subtitulo';
 
 function Estadistica({ numero, etiqueta }) {
   return (
-    <button>
+    <div className="estadistica-item">
       <strong>{numero}</strong>
       <Subtitulo texto={etiqueta} />
-    </button>
+    </div>
   );
 }
 

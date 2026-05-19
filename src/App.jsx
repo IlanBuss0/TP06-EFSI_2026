@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import MenuLateral from './components/MenuLateral';
 import Header from './components/Header';
 import Stories from './components/Stories';
@@ -12,7 +13,6 @@ function App() {
   const [historias, setHistorias] = useState([]);
   const [publicacionSeleccionada, setPublicacionSeleccionada] = useState(null);
 
-  //useEffects
   useEffect(() => {
     const traerDatos = async () => {
       const imagenesPublicaciones = await obtenerImagenes();
