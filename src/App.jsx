@@ -4,38 +4,45 @@ import Stories from './components/Stories';
 import Publicaciones from './components/Publicaciones';
 import { obtenerImagenes, obtenerMasHistorias } from './services/API'
 import { useEffect, useState } from 'react';
+import DetallePublicacion from './components/DetallePublicacion';
+import './App.css'
 
 function App() {
-  //useStates
-  const [imagenes, setImagenes] = useState([])
-  const [historias, setHistorias] = useState([])
-  const [publicacionSeleccionada, setPublicacionSeleccionada] = useState(null)
+  const [publicaciones, setPublicaciones] = useState([]);
+  const [historias, setHistorias] = useState([]);
+  const [publicacionSeleccionada, setPublicacionSeleccionada] = useState(null);
 
   //useEffects
   useEffect(() => {
     const traerDatos = async () => {
-        const imagenesPublicaciones = await obtenerImagenes()
-        const imagenesHistorias = await obtenerMasHistorias()
+      const imagenesPublicaciones = await obtenerImagenes();
+      const imagenesHistorias = await obtenerMasHistorias();
 
-        setImagenes(imagenesPublicaciones)
-        setHistorias(imagenesHistorias)
-    }
+      setPublicaciones(imagenesPublicaciones.slice(0, 12));
+      setHistorias(imagenesHistorias);
+    };
 
-    traerDatos()
-}, []) // carga todas las imagenes de la app al iniciar la app
-  
-setPublicacionSeleccionada(publicacion) //cuando tocan se cambia publicacionSeleccionada y activa la funcion se la ventana emergente
-useEffect(() =>{
-    setHistorias([])
-    setImagenes([])
-  }, publicacionSeleccionada) // a chequear
+    traerDatos();
+  }, []);
   return (
-    <div>
-      <ventanaEmergente />
+     <div className="app-layout">
       <MenuLateral />
-      <Header />
-      <Stories historias={historias}/>
-      <Publicaciones />
+      <MenuLateral />
+      <main className="contenido-principal">
+        <Header />
+        <Stories historias={historias} />
+        <Publicaciones
+          publicaciones={publicaciones}
+          onSeleccionarPublicacion={setPublicacionSeleccionada}
+        />
+      </main>
+
+      {publicacionSeleccionada && (
+        <DetallePublicacion
+          publicacion={publicacionSeleccionada}
+          onCerrar={() => setPublicacionSeleccionada(null)}
+        />
+      )}
     </div>
   );
 }
