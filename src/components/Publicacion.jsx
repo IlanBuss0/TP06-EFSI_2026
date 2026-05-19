@@ -1,19 +1,22 @@
 import User from './User';
 import Icono from './Icono';
 
-function Publicacion({ imagen, usuario }) {
+function Publicacion({ id, imagen, usuario, likes, onSeleccionar }) {
   return (
-    <article>
-      <img src={imagen} alt="publicación" width="250" />
+    <article className="card-publicacion" onClick={() => onSeleccionar({ id, imagen, usuario, likes })}>
+      <img src={imagen} alt="publicación" className="imagen-publicacion" />
 
-      <div>
-        <User imagen="https://picsum.photos/seed/userpost/50/50" nombre={usuario} />
-        <div>
+      <div className="publicacion-footer">
+        <User imagen={imagen} nombre={usuario} />
+
+        <div className="acciones-publicacion">
           <Icono simbolo="♡" />
           <Icono simbolo="💬" />
           <Icono simbolo="✈️" />
         </div>
       </div>
+
+      <p className="likes-texto">{likes} likes</p>
     </article>
   );
 }

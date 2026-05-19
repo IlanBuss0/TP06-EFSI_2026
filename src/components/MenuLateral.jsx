@@ -4,21 +4,23 @@ import Estadistica from './Estadictica';
 import BotonMenu from './BotonMenu';
 
 function MenuLateral() {
-  const fotoPerfil = 'https://picsum.photos/seed/perfil/100/100';
+  const fotoPerfil = 'https://cdn2.thecatapi.com/images/MTY3ODIyMQ.jpg';
 
   return (
-    <aside>
-      <h1>Instagram</h1>
+    <aside className="menu-lateral">
+      <h1 className="logo">Instagram</h1>
 
-      <Burbuja imagen={fotoPerfil} alt="perfil" />
-      <Subtitulo texto="@usuario_demo" />
+      <div className="perfil-lateral">
+        <Burbuja imagen={fotoPerfil} alt="perfil" />
+        <Subtitulo texto="@michi_queen" />
+      </div>
 
-      <div>
+      <div className="estadisticas-lateral">
         <Estadistica numero="121K" etiqueta="Followers" />
         <Estadistica numero="900K" etiqueta="Likes" />
       </div>
 
-      <nav>
+      <nav className="nav-lateral">
         <BotonMenu icono="🏠" texto="Home" />
         <BotonMenu icono="🧭" texto="Explore" />
         <BotonMenu icono="🎬" texto="Reels" />

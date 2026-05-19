@@ -1,15 +1,18 @@
 import Titulo from './Titulo';
 import User from './User';
 
-function Stories(story) {
-  historias = story
+function Stories({ historias }) {
   return (
-    <section>
+    <section className="stories-section">
       <Titulo texto="STORIES" />
 
-      <div>
-        {stories.map((historias) => (
-          <User key={historias.id} imagen={historias.imagen} nombre={historias.nombre} />
+      <div className="stories-fila">
+        {historias.map((historia, index) => (
+          <User
+            key={historia.id}
+            imagen={historia.url}
+            nombre={`cat_${index + 1}`}
+          />
         ))}
       </div>
     </section>

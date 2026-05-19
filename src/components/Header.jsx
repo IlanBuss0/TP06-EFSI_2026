@@ -2,16 +2,16 @@ import Icono from './Icono';
 
 function Header() {
   return (
-    <header>
-      <input type="text" placeholder="Username, hashtag and story search" />
+    <header className="header-superior">
+      <input className="buscador" type="text" placeholder="Username, hashtag and story search" />
 
-      <div>
+      <div className="header-iconos">
         <Icono simbolo="⚙️" />
         <Icono simbolo="📷" />
         <Icono simbolo="✈️" />
       </div>
 
-      <button>+ New Post</button>
+      <button className="boton-post">+ New Post</button>
     </header>
   );
 }

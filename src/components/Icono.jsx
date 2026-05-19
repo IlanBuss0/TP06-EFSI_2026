@@ -1,5 +1,5 @@
 function Icono({ simbolo = '⭐' }) {
-  return <span>{simbolo}</span>;
+  return <span className="icono-ui">{simbolo}</span>;
 }
 
 export default Icono;

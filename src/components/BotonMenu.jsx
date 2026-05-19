@@ -3,7 +3,7 @@ import Subtitulo from './Subtitulo';
 
 function BotonMenu({ icono, texto }) {
   return (
-    <button>
+    <button className="boton-menu">
       <Icono simbolo={icono} />
       <Subtitulo texto={texto} />
     </button>
