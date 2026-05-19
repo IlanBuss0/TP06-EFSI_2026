@@ -4,7 +4,6 @@ import Header from './components/Header';
 import Stories from './components/Stories';
 import Publicaciones from './components/Publicaciones';
 import { obtenerImagenes, obtenerMasHistorias } from './services/API'
-import { useEffect, useState } from 'react';
 import DetallePublicacion from './components/DetallePublicacion';
 import './App.css'
 
