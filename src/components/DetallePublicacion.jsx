@@ -1,18 +1,22 @@
 import Icono from './Icono';
 
 function DetallePublicacion({ publicacion, onCerrar }) {
-  const comentarios = ['Muy buena foto', 'Me encanta esta publicación', 'Increíble imagen'];
+  const comentarios = [
+    '@miauuuu: Tremenda foto 😍',
+    '@catlover: Este gatito merece portada.',
+    '@furry.friends: Necesito más posts así.'
+  ];
 
   return (
     <div className="overlay-detalle" onClick={onCerrar}>
       <div className="modal-detalle" onClick={(e) => e.stopPropagation()}>
         <button className="boton-cerrar" onClick={onCerrar}>✕</button>
-        <img src={publicacion.imagen} alt="detalle" className="imagen-detalle" />
+        <img src={publicacion.imagen} alt={publicacion.usuario} className="imagen-detalle" />
 
         <div className="contenido-detalle">
-          <h3>{publicacion.usuario}</h3>
+          <h3>@{publicacion.usuario}</h3>
           <p>{publicacion.likes} likes</p>
-          <p className="caption">Un día perfecto con mi gato 🐾</p>
+          <p className="caption">{publicacion.caption}</p>
 
           <div className="acciones-detalle">
             <Icono simbolo="♡" />

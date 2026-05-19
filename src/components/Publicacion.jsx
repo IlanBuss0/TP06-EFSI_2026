@@ -1,13 +1,13 @@
 import User from './User';
 import Icono from './Icono';
 
-function Publicacion({ id, imagen, usuario, likes, onSeleccionar }) {
+function Publicacion({ publicacion, onSeleccionar }) {
   return (
-    <article className="card-publicacion" onClick={() => onSeleccionar({ id, imagen, usuario, likes })}>
-      <img src={imagen} alt="publicación" className="imagen-publicacion" />
+    <article className="card-publicacion" onClick={() => onSeleccionar(publicacion)}>
+      <img src={publicacion.imagen} alt={publicacion.usuario} className="imagen-publicacion" />
 
       <div className="publicacion-footer">
-        <User imagen={imagen} nombre={usuario} />
+        <User imagen={publicacion.imagen} nombre={`@${publicacion.usuario}`} />
 
         <div className="acciones-publicacion">
           <Icono simbolo="♡" />
@@ -16,7 +16,7 @@ function Publicacion({ id, imagen, usuario, likes, onSeleccionar }) {
         </div>
       </div>
 
-      <p className="likes-texto">{likes} likes</p>
+      <p className="likes-texto">{publicacion.likes} likes</p>
     </article>
   );
 }
