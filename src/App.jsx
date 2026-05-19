@@ -6,8 +6,10 @@ import { obtenerImagenes, obtenerMasHistorias } from './services/API'
 import { useEffect, useState } from 'react';
 
 function App() {
+  //useStates
   const [imagenes, setImagenes] = useState([])
   const [historias, setHistorias] = useState([])
+  const [publicacionSeleccionada, setPublicacionSeleccionada] = useState(null)
 
   //useEffects
   useEffect(() => {
@@ -21,15 +23,15 @@ function App() {
 
     traerDatos()
 }, []) // carga todas las imagenes de la app al iniciar la app
-  useEffect((fotoElegida) =>{
-    const traerDatos = async(fotoElegida) =>{
-      const publicacion = fotoElegida
-      setHistorias([])
-      setImagenes([])
-    }
-  }, clickPublicacion) // cuando tocan una publicacion se amplia y 
+  
+setPublicacionSeleccionada(publicacion) //cuando tocan se cambia publicacionSeleccionada y activa la funcion se la ventana emergente
+useEffect(() =>{
+    setHistorias([])
+    setImagenes([])
+  }, publicacionSeleccionada) // a chequear
   return (
     <div>
+      <ventanaEmergente />
       <MenuLateral />
       <Header />
       <Stories historias={historias}/>
