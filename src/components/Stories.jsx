@@ -7,11 +7,11 @@ function Stories({ historias }) {
       <Titulo texto="STORIES" />
 
       <div className="stories-fila">
-        {historias.map((historia, index) => (
+        {historias.map((historia) => (
           <User
             key={historia.id}
-            imagen={historia.url}
-            nombre={`cat_${index + 1}`}
+            imagen={historia.imagen}
+            nombre={historia.usuario}
           />
         ))}
       </div>

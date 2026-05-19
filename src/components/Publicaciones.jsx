@@ -7,13 +7,10 @@ function Publicaciones({ publicaciones, onSeleccionarPublicacion }) {
       <Titulo texto="TRENDING" />
 
       <div className="publicaciones-grid">
-        {publicaciones.map((item, index) => (
+        {publicaciones.map((publicacion) => (
           <Publicacion
-            key={item.id}
-            id={item.id}
-            imagen={item.url}
-            usuario={`@catlover_${index + 1}`}
-            likes={Math.floor(1200 + index * 167)}
+            key={publicacion.id}
+            publicacion={publicacion}
             onSeleccionar={onSeleccionarPublicacion}
           />
         ))}

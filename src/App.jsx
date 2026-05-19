@@ -3,10 +3,38 @@ import MenuLateral from './components/MenuLateral';
 import Header from './components/Header';
 import Stories from './components/Stories';
 import Publicaciones from './components/Publicaciones';
-import { obtenerImagenes, obtenerMasHistorias } from './services/API'
-import { useEffect, useState } from 'react';
 import DetallePublicacion from './components/DetallePublicacion';
-import './App.css'
+import { obtenerImagenes, obtenerMasHistorias } from './services/API';
+import './App.css';
+
+const usuariosDemo = [
+  'michi.daily',
+  'catmom.world',
+  'sir.whiskers',
+  'meowcity',
+  'catgram.feed',
+  'nap.queen',
+  'purrfect.vibes',
+  'gatos.trending'
+];
+
+function crearPublicaciones(imagenes = []) {
+  return imagenes.map((imagen, index) => ({
+    id: `${imagen.id}-${index}`,
+    imagen: imagen.url,
+    usuario: usuariosDemo[index % usuariosDemo.length],
+    likes: 1100 + index * 143,
+    caption: `Momento #${index + 1} con mucha actitud felina 🐾`
+  }));
+}
+
+function crearHistorias(imagenes = []) {
+  return imagenes.map((imagen, index) => ({
+    id: `${imagen.id}-story-${index}`,
+    imagen: imagen.url,
+    usuario: `cat_${index + 1}`
+  }));
+}
 
 function App() {
   const [publicaciones, setPublicaciones] = useState([]);
@@ -18,16 +46,17 @@ function App() {
       const imagenesPublicaciones = await obtenerImagenes();
       const imagenesHistorias = await obtenerMasHistorias();
 
-      setPublicaciones(imagenesPublicaciones.slice(0, 12));
-      setHistorias(imagenesHistorias);
+      setPublicaciones(crearPublicaciones(imagenesPublicaciones));
+      setHistorias(crearHistorias(imagenesHistorias));
     };
 
     traerDatos();
   }, []);
+
   return (
-     <div className="app-layout">
+    <div className="app-layout">
       <MenuLateral />
-      <MenuLateral />
+
       <main className="contenido-principal">
         <Header />
         <Stories historias={historias} />
